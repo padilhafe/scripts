@@ -47,18 +47,25 @@ create_template() {
     echo "Imagem ${VM_NAME} já existe. Pulando download."
   fi
 
+  # Montando o parâmetro de rede condicionalmente
+  if [ "${VM_TAG}" -eq 0 ]; then
+      NET_OPTS="virtio,bridge=${VM_BRIDGE},mtu=${VM_MTU}"
+  else
+      NET_OPTS="virtio,bridge=${VM_BRIDGE},mtu=${VM_MTU},tag=${VM_TAG}"
+  fi
+
   # Criando a VM
   qm create ${TEMPLATE_ID} \
-      --name ${VM_NAME} \
-      --cpu ${QEMU_CPU_MODEL} \
-      --sockets ${VM_CPU_SOCKETS} \
-      --cores ${VM_CPU_CORES} \
-      --memory ${VM_MEMORY} \
-      --net0 virtio,bridge=${VM_BRIDGE},mtu=${VM_MTU},tag=${VM_TAG} \
-      --ostype l26 \
-      --agent 1 \
-      --pool ${VM_RESOURCE_POOL} \
-      --scsihw virtio-scsi-single
+    --name ${VM_NAME} \
+    --cpu ${QEMU_CPU_MODEL} \
+    --sockets ${VM_CPU_SOCKETS} \
+    --cores ${VM_CPU_CORES} \
+    --memory ${VM_MEMORY} \
+    --net0 ${NET_OPTS} \
+    --ostype l26 \
+    --agent 1 \
+    --pool ${VM_RESOURCE_POOL} \
+    --scsihw virtio-scsi-single
 
   # Modificando configurações da VM
   qm set ${TEMPLATE_ID} \
