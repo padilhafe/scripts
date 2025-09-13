@@ -7,7 +7,7 @@ USER_NAME="terraform-prov@pve"
 TOKEN_NAME="terraform-token"
 
 PRIVS_V9="Datastore.AllocateSpace Datastore.Audit Datastore.AllocateTemplate Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.PowerMgmt SDN.Use VM.GuestAgent.Audit VM.GuestAgent.Unrestricted"
-PRIVS_V8="VM.Clone, VM.Config.Disk, Sys.Modify, Sys.Audit, VM.Allocate, VM.Migrate, VM.Config.Network, Datastore.AllocateSpace, Pool.Allocate, VM.PowerMgmt, VM.Monitor, VM.Config.CDROM, Datastore.AllocateTemplate, VM.Config.Memory, VM.Audit, VM.Config.CPU, SDN.Use, VM.Config.Cloudinit, Sys.Console, VM.Config.Options, Datastore.Audit, VM.Config.HWType"
+PRIVS_V8="Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.PowerMgmt SDN.Use VM.GuestAgent.Audit VM.GuestAgent.Unrestricted"
 
 info() { printf "\e[1;34m[INFO]\e[0m %s\n" "$*"; }
 warn() { printf "\e[1;33m[WARN]\e[0m %s\n" "$*"; }
