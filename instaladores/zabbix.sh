@@ -51,7 +51,7 @@ sudo apt install -y mariadb-server mariadb-client
 # -----------------------------
 # Configurar MariaDB
 # -----------------------------
-sudo mysql_secure_installation <<EOF
+sudo mariadb-secure-installation <<EOF
 
 n
 y
