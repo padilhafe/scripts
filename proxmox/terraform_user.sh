@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # 1. Criar Role com permissões necessárias para o Terraform
-pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Datastore.AllocateTemplate Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.PowerMgmt SDN.Use"
+# Para Proxmox v9
+# pveum role add TerraformProv -privs "Datastore.AllocateSpace Datastore.Audit Datastore.AllocateTemplate Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.PowerMgmt SDN.Use"
+
+# Para Proxmox v8
+# pveum role add TerraformProv -privs "VM.Clone, VM.Config.Disk, Sys.Modify, Sys.Audit, VM.Allocate, VM.Migrate, VM.Config.Network, Datastore.AllocateSpace, Pool.Allocate, VM.PowerMgmt, VM.Monitor, VM.Config.CDROM, Datastore.AllocateTemplate, VM.Config.Memory, VM.Audit, VM.Config.CPU, SDN.Use, VM.Config.Cloudinit, Sys.Console, VM.Config.Options, Datastore.Audit, VM.Config.HWType"
 
 # 2. Criar Usuário sem senha
 pveum user add terraform-prov@pve --keys ''
