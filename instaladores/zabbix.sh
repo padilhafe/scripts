@@ -323,7 +323,7 @@ fi
 # Configurar MariaDB
 # -----------------------------
 print_info "Configurando MariaDB..."
-if sudo mysql -u root -p"${ZABBIX_DB_PASSWORD}" <<EOF
+if sudo mysql -u root <<EOF
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${ZABBIX_DB_PASSWORD}';
 DELETE FROM mysql.user WHERE User='';
 DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
